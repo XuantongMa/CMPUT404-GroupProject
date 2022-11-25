@@ -32,10 +32,11 @@ def search_result(request,userId,searched):
 @login_required(login_url='/login/')
 def my_inbox(request,userId):
     currentAuthor=single_author.objects.get(uuid=userId)
-    if not Like.objects.filter(author=author, summary=summary, object=object).exists():
-        like = Like.objects.create(author=author, summary=summary, object=object)
-        like.save()
-    currentAuthorInbox = InboxItem.objects.get(author=currentAuthor.uuid)
+    if not Inbox.objects.filter(author=currentAuthor).exists():
+        myInbox = Inbox.objects.create(author=currentAuthor)
+        myInbox.save()
+    currentAuthorInbox = Inbox.objects.get(author=currentAuthor)
+    
     return render(request, 'inbox/inbox.html',{
         "currentAuthorInbox": currentAuthorInbox,
         "userId": userId

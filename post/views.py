@@ -8,7 +8,7 @@ from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 import uuid
 from django.db.models import Q
-from inbox.models import InboxItem
+
 
 
 # Create your views here.
