@@ -21,4 +21,4 @@ from post.models import Post
 class Inbox(models.Model):
     type = models.CharField(default='inbox', max_length=200)
     author = models.ForeignKey(single_author, on_delete=models.CASCADE)
-    items = [Post]
+    items = models.ForeignKey(Post, on_delete=models.CASCADE,null=True,blank=True)

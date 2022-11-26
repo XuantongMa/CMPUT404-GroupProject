@@ -83,7 +83,7 @@ class Comment(models.Model):
 
 
 class Like(models.Model):
-    type = type = models.CharField(default='like', max_length=200)
+    type = models.CharField(default='like', max_length=200)
     summary = models.TextField(max_length=256, null=True, blank=True)
     # sender
     author = models.ForeignKey(single_author, on_delete=models.CASCADE, blank=True, null=True)
